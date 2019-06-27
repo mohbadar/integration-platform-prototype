@@ -1,0 +1,1217 @@
+
+	@font-face
+{
+    font-family : "Ubuntu-R";
+    src: url('../font/Ubuntu-R.ttf');
+}
+
+body {
+	color:#777575;
+	font-family : "Ubuntu-R";
+
+}
+
+/*----------------------------------------
+    Breadcrumb
+    ------------------------------------------*/
+ .separator {
+ 	margin-top: 20px;
+ }   
+    #breadcrumbs-wrapper{
+      height: 65px;
+      color: rgba(0, 0, 0, 0.87);
+      background-color: rgba(252, 252, 252, 1);
+      background: -webkit-linear-gradient(rgb(252, 252, 252),rgb(240, 240, 240),rgb(252, 252, 252)); /*Safari 5.1-6*/
+      background: -o-linear-gradient(rgb(252, 252, 252),rgb(240, 240, 240),rgb(252, 252, 252)); /*Opera 11.1-12*/
+      background: -moz-linear-gradient(rgb(252, 252, 252),rgb(240, 240, 240),rgb(252, 252, 252)); /*Fx 3.6-15*/
+      background: linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240),rgb(252, 252, 252)); /*Standard*/
+      z-index: 2;
+  }
+  .breadcrumb {
+    padding: 0px;
+    margin: 5px 0px;
+    list-style: none;
+}
+
+.breadcrumbs-title {
+    font-size: 1.5rem;
+    line-height: 1.804rem;
+    margin: 10px 0px 0px 0px;
+}
+
+.breadcrumb > li {
+    display: inline-block;
+}
+
+.breadcrumb a {
+    color: #00aff0;
+}
+
+.breadcrumb .active {
+    font-weight: normal;
+    color: #999;
+}
+
+.breadcrumb > li + li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+
+h5.breadcrumbs-header {
+    font-size: 1.64rem;
+    line-height: 1.804rem;
+    margin: 1.5rem 0 0 0;
+}
+
+.breadcrumbs-nav {
+    margin: 8px 0 9px 0;
+}
+
+#main-container {
+	
+	margin-top: 15px;
+	padding: 0px;
+	padding-right: 5px;
+}
+
+
+#main-collapse {
+	background: #eee;
+}
+
+.note-div {
+	margin-left:100px;
+	padding-left:20px;
+}
+
+#inside-ol {
+	background: #ddd;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin: 0px;
+}
+
+div.list-items {
+	width: 48.40%;
+	height: 95px;
+	padding: 3px;
+	background: #eee;
+	border-radius:2px;
+	border:1px solid #aaa;
+	float: left;
+	margin-right: 2px;
+	margin-top: 2px;
+	margin-left: 2px;
+}
+
+div.list-items:hover {
+	background:#ddd;
+}
+
+
+div.create-form, div.edit-profile {
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 2px;
+	padding:20px;
+	border-top:1px solid #eee;
+	border-left:1px solid #eee;
+	box-shadow: 1px 1px 4px;
+}
+div.browse-course {
+	width: 100%;
+	height: 150px;
+	background: #eee;
+	border: 1px solid #aaa;
+	padding: 10px;
+}
+
+
+a.course-name-link {
+	background: #99D1E5;
+	height:44px;
+}
+
+
+
+div#course-instructor {
+	width: 26%;
+	float: left;
+	overflow: hidden;
+	height: 130px;
+}
+
+div#course-instructor-info {
+	width: 70%;
+	float: right;
+	padding-top: 0px;
+}
+
+
+
+a {
+	color: black;
+}
+
+
+
+
+
+
+
+.active {
+	color:#00AFF0;
+	border:#00AFF0;
+}
+
+div.browse-user-image {
+	height: 50px;
+	float: left;
+	width: 48px;
+	border:2px solid #fff;
+}
+
+div.browse-user-info {
+	height: 60px;
+	padding: 0px;
+}
+
+
+div.message-notification {
+	width:250px;
+	height:300px;
+	color:#000;
+	background: #D5E8ED;
+	position: absolute;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	overflow-y: scroll;
+	top: 64px;
+	right:20px;
+	z-index: 1;
+	line-height: 15px;
+	box-shadow: 1px 1px 3px;
+	
+}
+
+div.message-notification-content{
+	width:100%;
+	height:45px;
+	font-size: 12px;
+	text-align: center;
+	color:#686868;
+}
+.all-notification-content {
+	width:100%;
+	height:45px;
+	font-size: 12px;
+	text-align: center;
+	color:#686868;
+}
+
+.sticky-notes {
+	padding:2px;
+	border:1px solid #aaa;
+	box-shadow:2px 2px 2px;
+	background:#F2EEAE;
+	margin-right:10px;
+	width: 20px;
+	height:200px;
+	overflow:hidden;
+}
+
+
+ a.message-link {
+ 	border:1px solid #ddd;
+ 	background:#F9F7F7;
+ 	height: 45px;
+ }
+
+a.message-link:hover {
+	background:#D5E8ED;
+}
+
+.read-notification {
+	border:1px solid #ddd;
+	background:#fff;
+	height: 45px;
+}
+
+span.mybadge {
+	position: absolute;
+	top: -12px;
+	right: -10px;
+	height: 20px;
+	width:20px;
+	text-align: center;
+	border-radius: 100px;
+	background: #EF343A;
+	border:2px solid #D61D21;
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+a.edit-un {
+	color:#6E777A;
+}
+
+a.edit-un:hover {
+	cursor:pointer;
+	color:blue;
+	text-decoration:underline;
+}
+a.edit-fa {
+	color:#6E777A;
+}
+
+
+
+
+
+a.edit-fa:hover {
+	cursor:pointer;
+	color:blue;
+	text-decoration:underline;
+}
+
+a.edit-de {
+	color:#6E777A;
+}
+
+a.edit-de:hover {
+	cursor:pointer;
+	color:blue;
+	text-decoration:underline;
+}
+a.edit-co {
+	color:#6E777A;
+}
+
+a.edit-co:hover {
+	cursor:pointer;
+	color:blue;
+	text-decoration:underline;
+}
+
+div#on-user-hov:hover {
+	background: #fff;
+}
+
+li.msgli {
+	margin-top: -5px;
+	height: 65px;
+	padding-top: 5px;
+	margin-bottom: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: -100px;
+	cursor: pointer;
+}
+
+
+
+#course-border {
+	border-right: 2px solid #00BCD4;
+}
+
+
+nav {
+	/*background: #00AFF0;*/
+	background: #FFF;
+}
+
+.actives {
+	background-color: #00AFF0;
+}
+
+.cyantext {
+	color:#00AFF0;
+}
+
+.cyanback {
+	background: #00AFF0;
+}
+
+/* UnivAmin starts from here  */
+
+div.confirm-teacher {
+	width: 80%;
+	border:1px solid #ddd;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin:0 auto;
+	padding-top: 15px;
+	margin-bottom:3px;
+	background: #F5F5F5;
+	color:#777575;
+}
+
+div.accordian-course {
+	padding: 10px;
+	border:2px solid #eee;
+	background:#fff;
+	border-redius:5px;
+	height:200px;
+}
+
+.act {
+	width: 100%;
+}
+
+.teacher-info {
+	font-size: 20px;
+}
+
+div.confirm-pic {
+	float: left;
+	width:11%;
+	margin-right: 3px;
+}
+
+div.confirm-btn {
+	width:30%;
+	margin-left: 70%;
+}
+
+
+div.confirm-info {
+	float: left;
+	width:50%;
+	margin-right: 3px;
+}
+
+
+
+
+/* Instructor starts from here   */
+
+div.online-users {
+	width:85%;
+	padding-bottom: 20px;
+	margin:20px auto;
+	padding:2px;
+	padding-top: 30px;
+	border:2px solid #ddd;
+	padding-bottom: 20px;
+	margin-bottom: 100px;
+}
+
+div.on-user {
+	width:196px;
+	height: 40px;
+	border:2px solid #ddd;
+	margin-bottom: 3px;
+	padding-left: 30px;
+	padding-right:5px;
+	cursor: pointer;
+	margin:0 auto;
+	margin-left:-15px;
+}
+
+#msg-send {
+	cursor:pointer;
+}
+
+div.on-pic {
+	width:36px;
+	height: 36px;
+	float: left;
+	margin-right:10px;
+	margin-left: -30px;
+}
+
+a#ed-course:hover {
+	background:white;
+}
+
+div.on-name {
+	width:122px;
+	height: 36px;
+	padding-top: 2px;
+	float: left;
+	overflow: hidden;
+	line-height: 30px;
+}
+
+
+div.on-pic img {
+	width:36px;
+	height: 36px;
+
+}
+
+div.on-mark {
+	width:8px;
+	height: 8px;
+	background: green;
+	float: right;
+	border-radius: 100px;
+	margin-top: 14px;
+
+}
+
+
+
+/* my all course page */
+
+div.my-all-courses {
+	width:90%;
+	margin:0 auto;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	box-shadow: 1px 1px 2px;
+	padding: 50px;
+	padding-top: 20px;
+}
+
+
+div.mypagi {
+	width:100%;
+	margin-left: 260px;
+}
+
+
+
+
+
+div.forum {
+	width: 100%;
+	margin:0 auto;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	margin-top: 5px;
+	box-shadow: 1px 1px 3px;
+	padding:40px;
+	padding-top:20px;
+}
+
+
+div.post-reply {
+	width: 100%;
+	background: #F9F9F9;
+	border: 1px solid #ddd;
+	margin-top: 10px;
+	padding:6px;
+	border-radius: 3px;
+	font-size: 100%;
+}
+
+.link-hover:hover {
+	color:#00AFF0;
+	border-bottom: 1px solid #00AFF0;
+	cursor:pointer;
+}
+
+
+
+.link-hover {
+	color:#87898E;
+}
+
+.post-info {
+	margin-top: 5px;
+}
+
+
+.post-action {
+	width: 100%;
+	margin-top: 40px;
+
+
+}
+.post-action span {
+	margin-right: 30px;
+	padding: 10px;
+	background: #eee;
+
+}
+
+.post-action span.acted {
+	background:#00AFF0;
+	margin: 0px;
+	color:#fff;
+	padding: 5px;
+	font-size: 12px;
+	border-radius: 100px;
+
+}
+
+img#post-user-pic:hover {
+	border:1px solid #00AFF0;
+}
+
+img#post-user-pic {
+	border:1px solid #ccc;
+}
+
+
+
+div.post-all-replies {
+	width: 100%;
+	border: 1px solid #ddd;
+	margin-top: 5px;
+	font-size: 100%;
+	padding: 10px;
+	padding-left: 40px;
+	margin-bottom: 40px;
+	background:#F4F4F4;
+
+}
+
+
+li.nav-hover {
+	height: 64px;
+	margin-bottom: 5px;
+	margin-top: -5px;
+	padding-top: 3px;
+}
+
+.act-btn {
+	border:0px;
+	background: #EEEEEE;
+}
+.act-btn:active {
+	background:#EEEEEE;
+}
+
+li.specific-course {
+	background: #99D1E5;
+	color: teal;
+	font-size: 20px;
+	font-weight: bold;
+}
+li#co:hover {
+	background: #99D1E5;
+
+}
+
+.hover-found-use:hover {
+	background:#EFF1F2;
+}
+
+
+div#find-user {
+	right: 170px;
+}
+
+div.found-user-pic {
+	width:40px;
+	height: 40px;
+	border:1px solid #fff;
+	float: left;
+}
+
+div.found-user-pic img {
+	width:40px;
+	height:40px;
+}
+
+div.found-user-name {
+	line-height: 20px;
+	float: left;
+	margin-left: 5px;
+}
+
+
+.found-assistant {
+	color:#726F6F;
+	padding:2px;
+	margin-bottom:3px;
+	height:50px;
+	margin-bottom:-45px;
+}
+.found-assistant:hover {
+	background:#E8F4F7;
+}
+
+div.material {
+	width: 100%;
+	background: #F9F9F9;
+	border:1px solid #ccc;
+	padding: 5px;
+	text-align: center;
+	
+}
+
+
+div.material-option {
+	width:135px;
+	height:240px;
+	border:1px solid #ccc;
+	padding: 5px;
+	margin: 0 auto;
+
+}
+div.material-option:hover {
+	background: #fff;
+}
+
+div.material-option img {
+	width: 120px;
+	height: 120px;
+}
+
+
+div.desc {
+	text-align: left;
+    font-weight: normal;
+    width: 140px;
+    margin: 5px;
+    font-size: 12px;
+}
+
+div.material-option a {
+	color: #2794E8;	
+}
+
+div.material-option a:hover {
+	color:teal;
+	text-decoration:underline;
+}
+
+blockquote:hover {
+	background: #fff;
+}
+
+blockquote {
+	padding:10px;
+}
+
+div.quizpaper {
+	width: 100%;
+	margin: 3px auto;
+	border:1px solid #ddd;
+	padding:5px;
+	padding-top:7px;
+	background: #EBF3F4;
+}
+
+
+div.gradbook {
+	width: 100%;
+	margin:3px auto;
+	border:1px 0px 0px 1px solid #ddd;
+	box-shadow: 1px 1px 3px;
+	padding:5px;
+	padding-bottom:50px;
+}
+
+div.gradbook hr {
+	width:80%;
+	margin-top: 30px;
+}
+
+
+a.all-q {
+	padding:10px;
+	background: #eee;
+	color: teal;
+}
+a.all-q:hover {
+	background: #ddd;
+}
+
+a.q-action {
+	padding:10px;
+	color:#00AFF0;
+	text-decoration-style: underline;
+	background:#BCD3DB;
+}
+
+a.q-action:hover {
+	background: #D4EDF4;
+}
+
+div.q-action-div {
+	display: block;
+	padding: 12px;
+	border-bottom: 2px solid #BCD3DB;
+}
+
+
+div.sharecourse {
+	width:98%;
+	margin:20px auto;
+	background:#CCE5EA;
+	padding:10px;
+}
+
+div.share-user {
+	width:90%;
+	border:1px solid #ddd;
+	margin:0 auto;
+	margin-top: -20px;
+	padding:10px;
+}
+
+div#find-user-to-share {
+	background: #EBF3F4;
+	padding:2px;
+	font-size: 20px;
+	margin-bottom: 3px;
+}
+
+div#find-user-to-share-name {
+	font-size: 15px;
+	text-align: left;
+	margin-left: 50px;
+	padding:5px;
+	padding-top: 10px;
+}
+
+span.share-btn {
+	padding:5px;
+	background: #CCE5EA;
+	color:teal;
+	margin-top: -6px;
+}
+
+span.share-btn:hover {
+	background: #9BBEC4;
+	color:#fff;
+	cursor: pointer;
+}
+
+.clicked {
+	color:#00AFF0;
+}
+/* scrollbar */
+
+body::-webkit-scrollbar {
+	width:8px;
+}
+
+body::-webkit-scrollbar-track {
+	border-left: 1px solid #aaa;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #00AFF0;
+	outline: none;
+	border-radius: 100px;
+}
+
+.modal-content::-webkit-scrollbar {
+	width:8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+	border-left: 1px solid #aaa;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+	background: #f4f4f4;
+	outline: none;
+	border-radius: 100px;
+}
+
+
+
+#found-assistant::-webkit-scrollbar {
+	width:8px;
+}
+
+#found-assistant::-webkit-scrollbar-track {
+	border-left: 1px solid #aaa;
+}
+
+#found-assistant::-webkit-scrollbar-thumb {
+	background: #00AFF0;
+	outline: none;
+	border-radius: 100px;
+}
+
+
+
+div#footer-modal {
+	background:#ACD8E2;
+}
+
+
+.msg-content::-webkit-scrollbar {
+	width:8px;
+}
+
+
+.msg-content::-webkit-scrollbar-thumb {
+	background: #00AFF0;
+	outline: none;
+	border-radius: 100px;
+}
+
+.message-notification::-webkit-scrollbar {
+	width:8px;
+}
+
+.message-notification::-webkit-scrollbar-track {
+	border-left: 1px solid #aaa;
+}
+
+.message-notification::-webkit-scrollbar-thumb {
+	background: #00AFF0;
+	outline: none;
+	border-radius: 100px;
+}
+
+
+
+/*  message area div  */
+div.message-area-div {
+	width: 360px;
+	height: 380px;
+	background: #EBF3F4;
+	border:2px solid #D5E8ED;
+	position:fixed;
+	bottom: 2px;
+	right: 12px;
+	z-index: 2;
+}
+
+div.msg-header {
+	width: 100%;
+	height:55px;
+	background: #00AFF0;
+	border-bottom: 2px solid #D5E8ED;
+	padding:5px;
+}
+
+div.msg-content {
+	width: 100%;
+	height: 230px;
+	background: #F4F4F4;
+	overflow-y: scroll;
+	padding:3px;
+	color:#999494;
+
+}
+
+div.msg-footer {
+	width: 100%;
+	height: 50px;
+	background: teal;
+	border-top: 2px solid #D5E8ED;
+	background: #EBF3F4;
+	padding:5px;
+}
+
+#msg-name {
+	margin-top:15px;
+	font-size:20px;
+	margin-left:10px;
+}
+
+
+#msg-send {
+	margin-top: 12px;
+	margin-right: 10px;
+}
+
+
+#msg-input {
+	width:250px;
+	height:20px;
+	margin-top:15px;
+}
+
+
+#close-msg-panel {
+	cursor: pointer;
+}
+
+/* Student starts from here */
+span#c-desc {
+	float: right;
+	font-size: 12px;
+}
+
+div.found-course {
+	background: #E8F2F4;
+	padding:5px;
+	color:#616566;
+	margin-bottom:4px;
+}
+
+div.found-course:hover {
+	background:#CCE5EA;
+}
+
+
+#toggle-forum:hover, #toggle-reminders:hover, #toggle-timetable:hover, #toggle-notes:hover {
+	cursor: pointer;
+}
+
+.x:hover {
+	color:teal;
+	cursor:pointer;
+}
+
+
+div#forum-form {
+	background:#EBF3F4;
+	padding:5px;
+}
+
+
+div.home-title {
+	padding:10px;
+	width: 100%;
+	border:2px solid #BCD3DB;
+	border-bottom:0px;
+	background: #EBF3F4;
+}
+
+a#toggle-feedback:hover{
+	cursor:pointer;
+}
+
+.edit-assignment:hover {
+	cursor:pointer;
+}
+
+div.modal {
+	background:#F4F4F4;
+	border:3px solid #ddd;
+}
+
+
+.waves-green:active {
+	background: #00AFF0;
+}
+
+li#co:hover {
+	color:#fff;
+}
+
+
+
+
+
+
+
+
+
+
+/* my @medai quiries */
+
+@media screen and (max-width: 980px) {
+	#logo {
+		margin-left: 50px;
+	}
+
+	div.mypagi {
+	width:100%;
+	margin-left: 120px;
+    }
+
+    div#find-user {
+    	right: 100px;
+    }
+
+   #user {
+   	height: 500px;
+   }
+}	
+
+
+
+/* notification div */
+@media screen and (max-width: 600px) {
+	#logo {
+		margin-left: 50px;
+	}
+	
+	.list-of-dep {
+		font-size:12px;
+	}
+	
+	div.message-notification {
+	top:56px;
+	}
+
+	#course-border {
+	border-right: 0px solid #00BCD4;
+	}
+	
+	div.create-form, div.edit-profile {
+		width:98%;
+	}
+
+
+	div.mypagi {
+	width:100%;
+	margin-left: 20px;
+}
+
+	
+	h5.post-title {
+		font-size: 14px;
+	}
+
+	#post-by {
+		font-size: 12px;
+	}
+	li.msgli {
+   	height: 55px;
+   }
+   li#search-li {
+   	height: 55px;
+   }
+   
+   .act {
+		font-size:10px;
+		width: 100%;
+	}
+
+
+
+}
+
+@media screen and (max-width: 460px) {
+
+
+	
+	
+	.note-div {
+	padding-left:15px;
+}
+
+	div#find-user-to-share-name {
+	font-size: 12px;
+	text-align: left;
+	margin-left: 40px;
+	padding:2px;
+	padding-top: 10px;
+	}
+
+	span.share-btn {
+	padding:3px;
+	background: #CCE5EA;
+	color:teal;
+	margin-top: -3px;
+}
+
+	div.message-area-div {
+	width: 98%;
+	background: #EBF3F4;
+	border:2px solid #D5E8ED;
+	position:fixed;
+	bottom: 1px;
+	right: 3px;
+	
+}
+	#msg-input {
+	width:215px;
+	height:20px;
+	margin-top:15px;
+	}
+
+	#msg-name {
+	margin-top:15px;
+	font-size:17px;
+	margin-left:10px;
+	}
+
+	div.msg-content {
+	width: 100%;
+	height: 150px;
+}
+
+
+	div.browse-user-image {
+		width: 40px;
+		height: 40px;
+	}
+
+	p.item-detail {
+	font-size: 9px;
+	padding: 0px;
+	margin:0px;
+	margin-top: 2px;
+	line-height: 12px;
+	}
+
+
+	div.list-items {
+	width: 47%;
+}
+
+
+
+
+	.remove-message {
+		font-size: 10px;
+	}
+
+	.post-action span.acted {
+		background:#00AFF0;
+		margin: 0px;
+		color:#fff;
+		padding: 4px;
+		font-size: 11px;
+		border-radius: 1000px;
+
+	}
+
+	#search-glossary {
+		font-size: 13px;
+	}
+
+	#quiz-paper {
+		font-size: 17px;
+	}
+
+	.post-info {
+   	font-size: 11px;
+   }
+   
+   	span#c-desc {
+	float: right;
+	font-size: 11px;
+}
+
+div.forum {
+	padding:0px;
+	border-left:0px;
+	border-right:0px;
+}
+
+#overall-title {
+	font-size : 10px;
+}
+	
+
+div.message-area-div {
+	height:290px;
+
+}
+	
+.contact-info {
+	font-size:10px;
+}
+
+
+.edit-mycourse {
+	font-size:12px;
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

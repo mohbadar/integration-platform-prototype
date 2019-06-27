@@ -1,0 +1,45 @@
+
+<div th:fragment="scripts">
+<!-- ================================================
+Scripts
+================================================ -->
+
+    <!-- jQuery Library -->
+<script type="text/javascript" th:src="@{/be/js/jquery-1.11.2.min.js}"></script>
+
+<!--  parsely.js -->
+  <script type="text/javascript" th:src="@{/be/js/parsley.js}"></script>
+  
+<!-- my custom.js -->
+<script type="text/javascript" th:src="@{/be/js/custom.js}"></script>
+
+<!--materialize js-->
+<script type="text/javascript" th:src="@{/be/js/materialize.js}"></script>
+
+<!--prism-->
+<script type="text/javascript" th:src="@{/be/js/prism.js}"></script>
+
+<!--scrollbar-->
+<script type="text/javascript" th:src="@{/be/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+
+<!--plugins.js - Some Specific JS codes for Plugin Settings-->
+<script type="text/javascript" th:src="@{/be/js/plugins.js}"></script>
+
+<script type="text/javascript">
+$(function () {
+  $('.dataform').parsley().on('field:validated', function() {
+    var ok = $('.parsley-error').length === 0;
+    $('.bs-callout-info').toggleClass('hidden', !ok);
+    $('.bs-callout-warning').toggleClass('hidden', ok);
+  })
+  .on('form:submit', function() {
+    return false; // Don't submit form for this demo
+  });
+
+  $('select').formSelect();
+
+  M.textareaAutoResize($('textarea'));
+});
+</script>
+ 
+</div>

@@ -1,0 +1,47 @@
+<!-- NAVBAR -->
+
+<div class="psp-header mdl-layout__header mdl-layout__header--waterfall" th:fragment="navbar">
+    <div class="mdl-layout__header-row">
+
+        <!-- LOGO -->
+        <span class="psp-title mdl-layout-title">
+            <img class="psp-logo-image" th:src="@{/fe/images/generic-logo.png}">
+        </span>
+        <!-- END LOGO -->
+
+
+        <!-- SEARCH -->
+        <div class="psp-header-spacer mdl-layout-spacer"></div>
+        <div class="psp-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+                <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+                <input class="mdl-textfield__input" type="text" id="search-field">
+            </div>
+        </div>
+
+        <!-- END SEARCH -->
+
+
+        <!-- START Navigation -->
+        <div class="psp-navigation-container">
+            <nav class="psp-navigation mdl-navigation">
+                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Solution</a>
+                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Services</a>
+                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Publication</a>
+                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Business Model</a>
+                <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">ABOUT US</a>
+                <a th:href="@{ /login }" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Sign In/Up</a>
+            </nav>
+        </div>
+        <!-- END Navigation -->
+
+
+        <span class="psp-mobile-title mdl-layout-title">
+            <img class="psp-logo-image" th:src="@{/fe/images/generic-logo.png}">
+        </span>
+
+
+    </div>
+</div>

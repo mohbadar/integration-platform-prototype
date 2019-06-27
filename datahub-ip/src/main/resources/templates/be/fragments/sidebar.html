@@ -1,0 +1,101 @@
+
+        
+
+         	<!-- START LEFT SIDEBAR NAV-->
+            <aside id="left-sidebar-nav" th:fragment="sidebar">
+                <ul id="slide-out" class="side-nav fixed leftside-navigation">
+                    <li class="user-details cyan darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                            		
+                             <!--    <img th:src="@{/be/images/logo.jpg}" alt="" class=" responsive-img valign profile-image" style="width: 180px !important"> -->
+
+                                  <img th:src="@{/be/images/logo.jpg}" alt="" class=" responsive-img valign profile-image" style="width: 180px !important;">
+                                	
+                            </div>
+                            <div class="col col s8 m8 l8">
+                                <ul id="profile-dropdown" class="dropdown-content">
+                                	
+	                                    <li>
+	                                    	<a href="#modal1" class="modal-trigger"><i class="mdi-action-face-unlock"></i> Profile</a>
+	                                    </li>
+	                               
+                                   
+                                    <li><a href="/logout"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
+                                    </li>
+                                </ul>
+                                <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#" data-activates="profile-dropdown" th:text="${#authentication.getName()}">Badar Hashimi<i class="mdi-navigation-arrow-drop-down right"></i></a>
+                                <!-- <p class="user-roal black-text">Admin</p> -->
+                          </div>
+                        </div><!-- END OF ROW -->
+                    </li>
+
+                    <!-- LEFT SIDE BAR -->
+
+	            	<li class="bold">
+                    	<a th:href="@{/}" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
+                    </li>
+					<!-- START OF COLLAPSABLE -->
+                    <ul class="collapsible collapsible-accordion">
+                       <li class="bold">
+                         <a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-social-group prefix"></i>Accounts</a>
+                           <div class="collapsible-body">
+                                    <ul>
+                                        <li><a th:href="@{/secure/user/add}">Add New Account</a></li>
+                                        <li><a th:href="@{/secure/user/list}">List Accounts</a></li>
+
+                                        <li><a th:href="@{/secure/role/add}">Add New Role</a></li>
+                                        <li><a th:href="@{/secure/role/list}">List Roles</a></li>
+                                    </ul>
+                           </div>
+                      </li>
+                     
+				      	 <li class="bold">
+          					 	<a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-content-add-circle"></i> Source Connector</a>
+                                    <div class="collapsible-body">
+                                       <ul>
+                              			 <li><a th:href="@{/secure/connector/db-source-connector}">Database Connector</a></li>
+                                 <li><a th:href="@{/secure/connector/table-source-connector}">Table Connectore</a></li>      
+                                <li><a th:href="@{/secure/connector/query-source-connector}">Query Connectore</a></li>      
+                            
+                            </ul>
+                         </div>
+                      </li>  
+
+
+                    <li class="bold">
+                      <a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-content-add-circle"></i> Sink Connector</a>
+                          <div class="collapsible-body">
+                            <ul>
+                                <li><a th:href="@{/secure/connector/db-sink-connector}">Database Connector</a></li>
+                                <li><a th:href="@{/secure/connector/table-sink-connector}">Table Connectore</a></li>      
+                                <li><a th:href="@{/secure/connector/query-sink-connector}">Query Connectore</a></li>      
+                            </ul>
+                          </div>
+                    </li> 
+
+
+  
+                         
+                        <li class="bold">
+                            <a class="collapsible-header waves-effect waves-cyan" 
+                            href="admin.settings">
+                                <i class="mdi-action-settings"></i>
+                                Settings
+                            </a> 
+                        </li>
+                         
+                      <br><br><br><br><br>                            
+    
+                    </ul>
+                    <!-- END OF COLLAPSABLE -->
+
+
+                    <!-- END LEFT SIDE BAR -->
+
+
+                   
+                </ul>
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only darken-2"><i class="mdi-navigation-menu" ></i></a>
+            </aside>
+            <!-- END LEFT SIDEBAR NAV-->

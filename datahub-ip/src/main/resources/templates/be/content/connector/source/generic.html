@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{be/layouts/layout}">
+
+<head>
+	<title>NSIA</title>
+</head>
+
+        <div layout:fragment="content">
+
+
+        <!--breadcrumbs start-->
+      <div id="breadcrumbs-wrapper" style="width:100%;" class="" >
+        <div class="container">
+          <div class="row">
+            <div class="col s12 m12 l12">
+              <h5 class="breadcrumbs-title"> INTEGRATION PLATFORM </h5>
+              <ol class="breadcrumb">
+                <li><a th:href="@{/}">HOME</a></li>
+                <li class="active"> CREATE AND DEPLOY A NEW CONNECTOR </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <!--breadcrumbs end-->
+
+
+<div class="create-form">
+                <form class="dataform" style="width: 100%" method="POST" th:action="@{/secure/connector/db-source-connector/save}" data-parsley-validate>
+
+                Create a New Connector (Captures the Entire Database Commited Changes)
+
+               <div class="row margin">
+                      <div class=" col s12">
+                          <select  id="connector" name="connector">
+                                <option value="" disabled selected class="center-align">--Data Source--</option>
+
+                                            <option 
+                                                    th:each="row : ${connectors}"
+                                                    th:value="${{row.id}}"
+                                                    th:text="${row.name}"
+                                                    >
+                                            </option>
+                             </select>
+
+                      </div>
+                  </div>
+
+
+                    <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input  id="name" type="text" name="name" class="material-textarea" required>
+                      <label for="name" class="center-align">Connector Name</label>
+                    </div>
+                  </div>
+
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input  id="host" type="text" name="host" class="material-textarea" required>
+                      <label for="host" class="center-align">Host</label>
+                    </div>
+                  </div>
+
+
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input  id="port" type="number" name="port" class="material-textarea" required>
+                      <label for="port" class="center-align">Port</label>
+                    </div>
+                  </div>
+
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input  id="dbname" type="text" name="dbname" class="material-textarea" required>
+                      <label for="dbname" class="center-align">DB Name</label>
+                    </div>
+                  </div>
+
+                  
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input  id="username" type="text" name="username" class="material-textarea" required>
+                      <label for="username" class="center-align">DB UserName</label>
+                    </div>
+                  </div>
+
+
+                 <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input  id="password" type="password" name="password" class="material-textarea" required>
+                      <label for="password" class="center-align">DB Password</label>
+                    </div>
+                  </div>
+
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <textarea id="textarea" class="materialize-textarea" name="config">
+                        {
+                            "mode": "bulk",
+                            "tasks.max": "3",
+                            "query":"SELECT * FROM table0 INNER JOIN table1 ON table0.id=table1.table0_id",
+                            "whitelist.tables": "table0,table1",
+                            "blacklist.tables": "table2,table3"
+                        }
+
+                      </textarea>
+                      <label for="textarea">Configuration Rules</label>
+                    </div>
+                  </div>
+           
+              
+          
+                  <div class="row">
+                    <div class="input-field col s12">
+                    <button type="submit" class="btn waves-effect waves-light col s12">Create and Deploy</button>
+                    </div>
+                  </div>
+              </form>
+
+           </div>
+           
+      
+
+        </div>
+
+</html>
+
+

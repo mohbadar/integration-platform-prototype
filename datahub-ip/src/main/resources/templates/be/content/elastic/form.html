@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{be/layouts/layout}">
+
+<head>
+	<title>USER MANAGEMENT</title>
+</head>
+
+        <div layout:fragment="content">
+
+
+				<!--breadcrumbs start-->
+			<div id="breadcrumbs-wrapper" style="width:100%;" class="" >
+			  <div class="container">
+			    <div class="row">
+			      <div class="col s12 m12 l12">
+			        <h5 class="breadcrumbs-title">CARD MANAGEMENT </h5>
+			        <ol class="breadcrumb">
+			          <li><a th:href="@{/}">HOME</a></li>
+			          <li class="active"> CARD FORM </li>
+			        </ol>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="separator"></div>
+			<!--breadcrumbs end-->
+
+
+			<div class="create-form">
+                <form class="dataform" style="width: 100%" method="POST" th:action="@{/secure/card/save}" data-parsley-validate>
+
+                Add a New Card		
+                  
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input id="cardno" type="text" name="cardno" required>
+                      <label for="cardno" class="center-align">Card Number</label>
+                    </div>
+                  </div>
+
+                       <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input id="cvv" type="text" name="cvv" required>
+                      <label for="cvv" class="center-align">CVV</label>
+                    </div>
+                  </div>
+                
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <input id="phone" type="text" name="phone" required>
+                      <label for="phone" class="center-align">Phone</label>
+                    </div>
+                  </div>
+
+                  
+                <div class="row margin">
+                      <div class=" col s12">
+                          <select id="bin" name="bin" class="browser-dafault">
+                                <option value="" disabled selected class="center-align">--Bank--</option>
+
+                                            <option th:each="row : ${banks}"
+                                                    th:value="${{row.bin}}"
+                                                    th:text="${row.name}">
+                                            </option>
+                             </select>
+
+
+                      </div>
+                  </div>
+                
+
+               <div class="row margin">
+                      <div class=" col s12">
+                          <select  id="email" name="email" class="browser-dafault">
+                                <option value="" disabled selected class="center-align">--User--</option>
+
+                                            <option th:each="row : ${users}"
+                                                    th:value="${{row.email}}"
+                                                    th:text="${row.firstName +' '+ row.lastName}">
+                                            </option>
+                             </select>
+
+                      </div>
+                  </div>
+                
+
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <i class="mdi-social-location-city prefix"></i>
+                      <textarea id="desc" name="desc" class="material-textarea" required></textarea>
+                      <label for="desc" class="center-align">Description</label>
+                    </div>
+                  </div>
+
+
+
+          
+                  <div class="row">
+                    <div class="input-field col s12">
+                    <button type="submit" class="btn waves-effect waves-light col s12">Create</button>
+                    </div>
+                  </div>
+              </form>
+           </div>
+           
+           
+      
+
+
+        </div>
+
+</html>

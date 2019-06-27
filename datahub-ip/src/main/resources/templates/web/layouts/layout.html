@@ -1,0 +1,29 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      >
+
+    <head th:replace="web/fragments/head :: head"></head>
+
+    <body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+            <div th:replace="web/fragments/navbar :: navbar"></div>
+            <div  th:replace="web/fragments/sidebar :: sidebar"></div>
+
+            <div th:if="${param.msg}">
+                <div class="alert alert-info">
+                    <p th:text="${param}"></p>
+                </div>
+            </div>
+
+            <!-- START CONTENT -->
+            <div class="psp-content mdl-layout__content">               
+                <div layout:fragment="content"></div>
+                <div th:replace="web/fragments/footer :: footer"></div>
+                <div th:replace="web/fragments/scripts :: scripts"></div>
+            </div>
+            <!-- END CONTENT -->
+
+        </div> 
+    </body>
+</html>

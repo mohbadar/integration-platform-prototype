@@ -1,0 +1,46 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      >
+    <head th:replace="be/fragments/head :: head"></head>
+
+    <body>
+
+    	<div th:replace="be/fragments/navbar :: navbar"></div>
+
+
+<!-- START MAIN -->
+    <div id="main">
+       <!-- START WRAPPER -->
+         <div class="wrapper">
+
+                <div th:replace="be/fragments/sidebar :: sidebar"></div>
+
+
+			<!-- START CONTAINER -->
+            <div class="container" style="padding-top: 5px;">
+            
+	            <div layout:fragment="content" >
+	            	
+
+                <div class="home-title" style="">
+                     <h5 class="center cyan-text" style="padding-top: 5px;color:#00AFF0">Title of Page </h5>
+                 </div>
+              
+                <h4 class="center" style="margin-top:50px;color:#ccc;">No Any Data Yet!</h4>
+
+
+
+	            </div>	
+
+            </div>
+
+            <!-- END CONTAINER -->
+
+          </div>
+        </div>
+
+
+    	<div th:replace="be/fragments/scripts :: scripts"></div>
+	</body>
+
+ </html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{be/layouts/layout}">
+
+<head>
+	<title>USER MANAGEMENT</title>
+</head>
+
+        <div layout:fragment="content">
+
+
+
+				<!--breadcrumbs start-->
+			<div id="breadcrumbs-wrapper" style="width:100%;" class="" >
+			  <div class="container">
+			    <div class="row">
+			      <div class="col s12 m12 l12">
+			        <h5 class="breadcrumbs-title">ACCOUNT MANAGEMENT </h5>
+			        <ol class="breadcrumb">
+			          <li><a th:href="@{/}">HOME</a></li>
+			          <li class="active"> ACCOUNTS</li>
+			        </ol>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="separator"></div>
+			<!--breadcrumbs end-->
+
+
+	<div th:if="${isDetails}">
+
+
+
+		<div class="create-form">
+             
+			<a th:href="|@{/secure/user/update/}${user.id}|" class=" waves-effect waves-teal btn right">Edit</a>
+			<a th:href="|@{/secure/user/delete/}${user.id}|" class=" waves-effect waves-teal btn right red">Remove</a>
+
+				<p th:text="${user.firstName +' '+ user.lastName}"></p>
+						                  
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                      <b>E-Mail:</b> <span th:text="${user.email}"></span>
+                    </div>
+                  </div>
+
+
+                 <div class="row margin">
+                    <div class="input-field col s12">
+                      <b>Roles:</b> <span th:each="row: ${user.roles[0]}"> 
+                      	<span th:text="${row.name}"></span>
+                      </span>
+                    </div>
+                  </div>
+                
+
+
+                
+                 
+           </div>
+
+
+
+	</div>
+
+
+	<div th:unless="${isDetails}">
+
+			   <div th:each="row : ${users}">
+                    <a th:href="|@{/secure/user/details/}${row.id}|">
+	                    <div class="list-items" style="width:180px;margin-top:5px;">
+	                       
+	                        <div class="browse-user-info">
+	                            <p class="item-detail" th:text="${row.firstName}">
+	                            
+	                            </p>
+	                            <p class="item-detail" th:text="${row.lastName}">
+	                            </p>
+
+	                        </div>
+	                    </div> 
+                    </a>
+                </div>
+
+
+
+
+			<!--    <div th:each="row : ${users}">
+                    <a href="#user" class="user-container">
+	                    <div class="list-items" style="width:180px;margin-top:5px;">
+	                       
+	                        <div class="browse-user-info">
+	                            <p class="item-detail" th:text="${row.firstName}">
+	                            
+	                            </p>
+	                            <p class="item-detail" th:text="${row.lastName}">
+	                            </p>
+
+	                            <p class="item-detail">
+	                            	<a href="" class="mdi-action-edit"></a>
+	                            </p>
+	
+	
+	                            <span style="visibility:hidden;" class="userid" th:text="${row.id}"></span>
+	                        </div>
+	                    </div> 
+                    </a>
+                </div> -->
+
+
+
+
+
+                <!-- Start Modal -->
+
+
+                <!-- START EDIT  MODAL -->
+			  <div id="user-modal" class="modal modal-fixed-footer">
+			    <div class="modal-content">
+			      
+			          
+			        	<h5 class="center cyan-text">User Information</h5>
+				        <p id="firstName"></p>
+			            <p id="lastName"></p>
+			      
+			
+			    </div>
+			    <div class="modal-footer" id="footer-modal">
+			      <a href="#" class=" modal-action modal-close waves-effect waves-teal btn-flat">Close</a>
+			    </div>
+			
+			  </div>
+              <!-- END EDIT MODAL -->
+
+
+                <!-- End Modal -->
+
+        </div>
+</div>
+
+</html>

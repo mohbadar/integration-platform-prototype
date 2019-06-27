@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(
+hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+<style type="text/css">
+body{
+	font-family: 'Courgette', cursive;
+}
+	
+.wrap{
+	width:100%;
+}
+.logo h1{
+	font-size:120px;
+	color:#EAEA44;
+	text-align:center;
+	margin:180px 0 0 0;
+	text-shadow:1px 1px 6px #898972;
+}	
+.logo p{
+	
+	font-size:20px;
+	color:teal;
+	margin-top:20px;
+	text-align:center;
+}	
+.logo p span{
+	color:lightgreen;
+}	
+.sub a{
+	color:white;
+	background:#8F8E8C;
+	text-decoration:none;
+	padding:5px 80px;
+	font-size:13px;
+	font-family: arial, serif;
+	font-weight:bold;
+	-webkit-border-radius:3em;
+	-moz-border-radius:.1em;
+	-border-radius:.1em;
+}	
+
+.sub a:hover {
+	background:teal;
+}
+
+.footer{
+	color:teal;
+	position:absolute;
+	right:10px;
+	bottom:2px;
+	font-size:15px;
+}	
+.footer a{
+	color:rgb(228, 146, 162);
+}	
+
+body {
+	background:#f4f4f4;
+}
+
+</style>
+</head>
+
+
+<body>
+	<div class="wrap">
+		<div class="logo">
+			<h1>404</h1>
+			<p>Error occured! - Page not Found</p>
+			<div class="sub">
+			   <p><a href="#" id="back-btn">Back</a></p>
+		    </div>
+		</div>
+	</div>	
+
+<script type="text/javascript">
+	$('#back-btn').on('click', function(event) {
+		event.preventDefault();
+		window.history.back();
+	});
+</script>
+</body>
