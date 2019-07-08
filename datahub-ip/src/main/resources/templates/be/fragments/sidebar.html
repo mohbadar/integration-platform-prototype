@@ -55,9 +55,11 @@
                                     <div class="collapsible-body">
                                        <ul>
                               			 <li><a th:href="@{/secure/connector/db-source-connector}">Database Connector</a></li>
-                                 <li><a th:href="@{/secure/connector/table-source-connector}">Table Connectore</a></li>      
-                                <li><a th:href="@{/secure/connector/query-source-connector}">Query Connectore</a></li>      
-                            
+                                        <li><a th:href="@{/secure/connector/table-source-connector}">Table Connectore</a></li>      
+                                        <li><a th:href="@{/secure/connector/query-source-connector}">Query Connectore</a></li>      
+                                       <li><a th:href="@{/secure/connector/generic-source-connector}">Generic Connector</a></li>      
+                                        <li><a th:href="@{/secure/connector/query-sink-connector}">Default Connectors</a></li>      
+                                        <li><a th:href="@{/secure/connectors}">All Connecotrs</a></li>
                             </ul>
                          </div>
                       </li>  
@@ -68,12 +70,25 @@
                           <div class="collapsible-body">
                             <ul>
                                 <li><a th:href="@{/secure/connector/db-sink-connector}">Database Connector</a></li>
-                                <li><a th:href="@{/secure/connector/table-sink-connector}">Table Connectore</a></li>      
-                                <li><a th:href="@{/secure/connector/query-sink-connector}">Query Connectore</a></li>      
+                                <li><a th:href="@{/secure/connector/table-sink-connector}">Table Connector</a></li>      
+                                <li><a th:href="@{/secure/connector/query-sink-connector}">Query Connector</a></li>      
+                                <li><a th:href="@{/secure/connector/generic-source-connector}">Generic Connector</a></li>      
+                                <li><a th:href="@{/secure/connector/query-sink-connector}">Default Connectors</a></li>      
+                                <li><a th:href="@{/secure/connector/query-sink-connector}">All Connecotrs</a></li>      
+
                             </ul>
                           </div>
                     </li> 
 
+
+                    <li class="bold">
+                      <a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-content-add-circle"></i>Templates</a>
+                          <div class="collapsible-body">
+                            <ul>
+                                <li><a th:href="@{/secure/template/list}">Connector Template</a></li>
+                            </ul>
+                          </div>
+                    </li> 
 
   
                          

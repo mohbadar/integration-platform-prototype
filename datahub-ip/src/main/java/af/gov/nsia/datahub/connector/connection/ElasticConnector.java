@@ -66,11 +66,39 @@ public class ElasticConnector {
             createElasticConnector();
             return true;
         }
+//        createMysqlConnector();
+
         return false;
     }
 
     public Collection<String> getKafkaConnectors() {
         return client.getConnectors();
+    }
+
+    /*
+        * Or to deploy a new connector:
+     */
+    @Async
+    @Loggable
+    private void createMysqlConnector() {
+        final ConnectorDefinition connectorDefition = client.addConnector(NewConnectorDefinition.newBuilder()
+                .withName("Mysq1-Pardakht-cn-connetor-2")
+                .withConfig("connector.class", "io.confluent.connect.jdbc.JdbcSourceConnector")
+                .withConfig("connection.url", "jdbc:mysql://localhost:3306/pardakht-cn")
+                .withConfig("connection.user", "root")
+                .withConfig("connection.password", "")
+                .withConfig("tasks.max", ParamConstant.ELASTIC_TASKS_MAX)
+                .withConfig("topics", "mysql-pardakht-cn")
+                .withConfig("topic.prefix", "mysql-pardakht-cn-demo")
+                .withConfig("value.converter.schema.registry.url", "http://localhost:8081")
+                .withConfig("table.whitelist", "user,role,article,bank")
+                .withConfig("mode", "bulk")
+                //                .withConfig("type.name", )
+                //                .withConfig("key.ignore", ParamConstant.ELASTIC_KEY_IGNORE)
+                //                .withConfig("schema.ignore", ParamConstant.ELASTIC_SCHEMA_IGNORE)
+                .build()
+        );
+
     }
 
 }

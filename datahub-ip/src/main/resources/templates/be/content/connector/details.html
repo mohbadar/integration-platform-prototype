@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{be/layouts/layout}">
+
+<head>
+	<title>USER MANAGEMENT</title>
+</head>
+
+        <div layout:fragment="content">
+
+
+
+				<!--breadcrumbs start-->
+			<div id="breadcrumbs-wrapper" style="width:100%;" class="" >
+			  <div class="container">
+			    <div class="row">
+			      <div class="col s12 m12 l12">
+			        <h5 class="breadcrumbs-title">ACCOUNT MANAGEMENT </h5>
+			        <ol class="breadcrumb">
+			          <li><a th:href="@{/}">HOME</a></li>
+			          <li class="active"> Connector </li>
+			        </ol>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<div class="separator"></div>
+			<!--breadcrumbs end-->
+
+
+
+
+
+		<div class="create-form">
+             
+		
+				<p th:text="${connector.getName()}"></p>
+						                  
+                  <div class="row margin">
+                    <div class="input-field col s12">
+                    <b>Configuration</b>
+                    <table class="responsive-table highlight striped">
+                      <tr th:each="instance : ${connector.getConfig()}">
+                        <td th:text="${instance.key}">keyvalue</td>
+                        <td th:text="${instance.value}">num</td>
+                     </table>   
+                    </tr>
+                    </div>
+                  </div>
+
+
+             <div class="row margin">
+                    <div class="input-field col s12">
+                    <b>Tasks</b>
+                    <table class="responsive-table highlight striped">
+                      <tr th:each="instance : ${connector.getTasks()}">
+                        <td th:text="${instance.toString()}">keyvalue</td>
+                        <td th:text="${instance.getTask()}">num</td>
+                     </table>   
+                    </tr>
+                    </div>
+                  </div>
+
+
+                
+                 
+           </div>
+
+
+
+
+
+
+
+</div>
+
+</html>

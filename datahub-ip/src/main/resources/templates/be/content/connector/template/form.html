@@ -16,7 +16,7 @@
               <h5 class="breadcrumbs-title"> INTEGRATION PLATFORM </h5>
               <ol class="breadcrumb">
                 <li><a th:href="@{/}">HOME</a></li>
-                <li class="active"> CREATE AND DEPLOY A NEW CONNECTOR </li>
+                <li class="active"> CREATE AND DEPLOY A NEW TEMPLATE </li>
               </ol>
             </div>
           </div>
@@ -27,41 +27,25 @@
 
 
 <div class="create-form">
-                <form class="dataform" style="width: 100%" method="POST" th:action="@{/secure/connector/generic/save}" data-parsley-validate>
+                <form class="dataform" style="width: 100%"
+                 method="POST" th:action="@{/secure/template/save}"
+                  data-parsley-validate>
 
-                Create a New Connector 
-
-               <div class="row margin">
-                      <div class=" col s12">
-                          <select name="template" id="template">
-                                <option value="" disabled selected class="center-align">Template</option>
-
-                                            <option 
-                                                    th:each="row : ${templates}"
-                                                    th:value="${{row.id}}"
-                                                    th:text="${row.name}"
-                                                    >
-                                            </option>
-                             </select>
-
-                      </div>
-                  </div>
+                Create a New Template
 
 
                     <div class="row margin">
                     <div class="input-field col s12">
                       <i class="mdi-social-location-city prefix"></i>
-                      <input  id="name" type="text" name="name" class="material-textarea" required>
-                      <label for="name" class="center-align">Connector Name</label>
+                      <input  id="name" type="text" name="name"
+                     required>
+                      <label for="name" class="center-align">Template Name</label>
                     </div>
                   </div>
 
-            
-
                   <div class="row margin">
                     <div class="input-field col s12">
-                      <textarea id="textarea" class="materialize-textarea config" name="config">
-
+                      <textarea id="textarea" class="materialize-textarea" required name="config">
                       </textarea>
                       <label for="textarea">Configuration Rules</label>
                     </div>

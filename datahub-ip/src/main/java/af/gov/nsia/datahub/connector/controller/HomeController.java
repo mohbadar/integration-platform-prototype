@@ -22,13 +22,13 @@ public class HomeController {
 
     @Autowired
     private KafkaConnectorService kafkaConnectorService;
-   
+
     @Loggable
     @GetMapping("/")
     @PreAuthorize("isAuthenticated()")
     public ModelAndView root() {
         ModelAndView mv = new ModelAndView("be/index");
-        System.out.println("CONNECTORS: "+ kafkaConnectorService.findAll().toString());
+        System.out.println("CONNECTORS: " + kafkaConnectorService.findAll().toString());
         mv.addObject("connectors", kafkaConnectorService.findAll());
         return mv;
     }
@@ -37,6 +37,12 @@ public class HomeController {
     @GetMapping("/login")
     public String login() {
         return "be/signin";
+    }
+
+    @Loggable
+    @GetMapping("/error")
+    public String error() {
+        return "error/403";
     }
 
     @Loggable

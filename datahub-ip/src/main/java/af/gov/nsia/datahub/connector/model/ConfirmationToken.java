@@ -16,6 +16,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
@@ -28,18 +30,23 @@ import lombok.ToString;
  *
  * @author hp 2018
  */
-@Entity
+@Entity(name = "ConfirmationToken")
+@Table(name = "confirmation_token")
 @Data
 @Setter
 @Getter
 @ToString
 @EqualsAndHashCode
-public class ConfirmationToken implements Serializable{
+public class ConfirmationToken  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "token_id")
-    private long tokenid;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "confirmation_token_generator")
+    @SequenceGenerator(name = "confirmation_token_generator", sequenceName = "confirmation_token_seq", allocationSize = 1)
+    @Column(unique = true, updatable = false, nullable = false)
+    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id;
 
     @Column(name = "confirmation_token")
     private String confirmationToken;

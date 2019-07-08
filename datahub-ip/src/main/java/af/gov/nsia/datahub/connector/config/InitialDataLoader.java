@@ -6,7 +6,9 @@
 package af.gov.nsia.datahub.connector.config;
 
 import af.gov.nsia.datahub.connector.connection.ElasticConnector;
+import af.gov.nsia.datahub.connector.connection.HadoopConnector;
 import af.gov.nsia.datahub.connector.connection.RDBMSConnector;
+import af.gov.nsia.datahub.connector.model.ConnectorTemplate;
 import af.gov.nsia.datahub.connector.model.KafkaConnector;
 import af.gov.nsia.datahub.connector.model.Privilege;
 import af.gov.nsia.datahub.connector.model.Role;
@@ -14,6 +16,7 @@ import af.gov.nsia.datahub.connector.model.User;
 import af.gov.nsia.datahub.connector.repository.PrivilegeRepository;
 import af.gov.nsia.datahub.connector.repository.RoleRepository;
 import af.gov.nsia.datahub.connector.repository.UserRepository;
+import af.gov.nsia.datahub.connector.service.ConnectorTemplateService;
 import af.gov.nsia.datahub.connector.service.KafkaConnectorService;
 import java.util.Arrays;
 import java.util.Collection;
@@ -49,19 +52,20 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     @Autowired
     private KafkaConnectorService kafkaConnectorService;
 
+    @Autowired
+    private ConnectorTemplateService connectorTemplateService;
+
     private ElasticConnector elasticConnector = new ElasticConnector();
-    private RDBMSConnector rDBMSConnector = new RDBMSConnector();
+    private HadoopConnector hadoopConnector = new HadoopConnector();
 
     @Override
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent e) {
-
-        createInitialKafkaConnectors();
-        if (!rDBMSConnector.createMySQLConnector(rDBMSConnector.getKafkaConnectors())) {
-            System.out.println("--------------------Didn't Create Connector-------------------");
-        }
-        rDBMSConnector.createMySQLConnector();  
         elasticConnector.createElasticConnector(elasticConnector.getKafkaConnectors());
+        hadoopConnector.createHadoopConnector(hadoopConnector.getKafkaConnectors());
+        if (connectorTemplateService.findAll().size() < 1) {
+            createJdbcConnectorTemplate();
+        }
 
         if (alreadySetup) {
             return;
@@ -198,6 +202,43 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
             kafkaConnectorService.createOrUpdate(mariaCon);
 
         }
+    }
+
+    public void createJdbcConnectorTemplate() {
+
+        String jdbcConfigTemplate = "{\n"
+                + "    \"connector.class\": \"io.confluent.connect.jdbc.JdbcSourceConnector\",\n"
+                + "    \"connection.url\": \"\",\n"
+                + "    \"connection.user\": \"\",\n"
+                + "    \"connection.password\": \"\",\n"
+                + "    \"connection.attempts\": \"\",\n"
+                + "    \"connection.backoff.ms\": \"\",\n"
+                + "    \"catalog.pattern\": \"\",\n"
+                + "    \"table.whitelist\": \"\",\n"
+                + "    \"table.blacklist\": \"\",\n"
+                + "    \"schema.pattern\": \"\",\n"
+                + "    \"numeric.precision.mapping\": \"\",\n"
+                + "    \"numeric.mapping\": \"\",\n"
+                + "    \"mode\": \"\",\n"
+                + "    \"incrementing.column.name\": \"\",\n"
+                + "    \"timestamp.column.name\": \"\",\n"
+                + "    \"validate.non.null\": \"\",\n"
+                + "    \"query\": \"\",\n"
+                + "    \"table.types\": \"\",\n"
+                + "    \"poll.interval.ms\": \"\",\n"
+                + "    \"batch.max.rows\": \"\",\n"
+                + "    \"table.poll.interval.ms\": \"\",\n"
+                + "    \"topic.prefix\": \"\",\n"
+                + "    \"timestamp.delay.interval.ms\": \"\",\n"
+                + "    \"db.timezone\": \"\"\n"
+                + "}";
+        ConnectorTemplate ct = new ConnectorTemplate();
+        ct.setName("JDBC Database Connector Template");
+        ct.setConfig(jdbcConfigTemplate);
+        connectorTemplateService.save(ct);
+
+        System.out.println("Templates: " + connectorTemplateService.findAll().toString());
+
     }
 
 }

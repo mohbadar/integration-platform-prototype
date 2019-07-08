@@ -9,11 +9,13 @@ import af.gov.nsia.datahub.connector.exception.DocumentTranformationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UncheckedIOException;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import javax.xml.parsers.DocumentBuilder;
@@ -155,4 +157,9 @@ public class Utility {
         return LongStream.of(numbers).boxed().collect(Collectors.toList());
     }
 
+    public static Map<String, String> jsonStringToMap(String data) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, String> map = mapper.readValue(data, Map.class);
+        return map;
+    }
 }

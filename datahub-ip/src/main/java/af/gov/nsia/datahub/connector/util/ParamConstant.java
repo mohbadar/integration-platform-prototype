@@ -45,4 +45,16 @@ public class ParamConstant {
     public static final Boolean ELASTIC_KEY_IGNORE = true;
     public static final Boolean ELASTIC_SCHEMA_IGNORE = true;
 
+    ///////////////////////// Hadoop Connector ///////////////////////
+    public static final String HADOOP_IP = "127.0.0.1";
+    public static final Integer HADOOP_PORT = 9000;
+    public static final String HADOOP_CONNECTOR_NAME = "Hadoop-Sink";
+    public static final String HADOOP_CONNECTOR_CLASS = "io.confluent.connect.hdfs.HdfsSinkConnector";
+    public static final String HADOOP_CONNECTION_URL = "http://" + HADOOP_IP + ":" + HADOOP_PORT;
+    public static final String HADOOP_TOPIC = "hadoop_logs";
+    public static final Integer HADOOP_TASKS_MAX = 1;
+    public static final String HADOOP_HDFS_URL = "maprfs:///";
+    public static final String HADOOP_FLUSH_SIZE = "5";
+    public static final String HADOOP_ROTATE_INTERVAL_SIZE = "1000";
+
 }

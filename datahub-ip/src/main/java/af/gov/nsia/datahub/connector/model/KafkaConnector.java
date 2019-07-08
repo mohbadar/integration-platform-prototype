@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,22 +26,28 @@ import lombok.ToString;
  *
  * @author hp 2018
  */
-@Entity
+@Entity(name = "KafkaConnector")
+@Table(name = "kafka_connector")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @ToString
 @EqualsAndHashCode
-public class KafkaConnector implements Serializable {
+public class KafkaConnector {
 
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "kafka_connector_generator")
+//    @SequenceGenerator(name = "kafka_connector_generator", sequenceName = "kafka_connector_seq", allocationSize = 1)
+//    @Column(unique = true, updatable = false, nullable = false)
+//    private Long id;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column(
             length = 128,
-            name = "name"
+            name = "name",
+            unique = true
     )
     private String name;
 
@@ -80,5 +88,4 @@ public class KafkaConnector implements Serializable {
 //            name = "config"
 //    )
 //    private Map<String, String> config = new HashMap<>();
-
 }

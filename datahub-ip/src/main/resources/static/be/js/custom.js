@@ -1,61 +1,53 @@
+$('#template').on('change', function(event) {
+    event.preventDefault();
+    var id = $(this).val();
+
+    alert(id);
+
+    //Send ajax request
+    $.ajax({
+        method: 'GET',
+        url: '/async/connnector/template/' + id,
+        // data: { 'id': id }
+        //Result of ajax call
+    }).done(function(data) {
+        $('.config').html(data['config']);
+    });
+
+});
 
 
-   $('.user-container').on('click', function (event) {
-	   event.preventDefault();
-	   var id = $(this).find('.userid').html();
 
-	   // alert(id);
-	   
-	   //Send ajax request
-	   $.ajax({
-		   method :'GET',
-		   url    : '/secure/user/ajax/show',
-		   data   : {'id': id}
-		  //Result of ajax call
-	   }).done(function(data) {
-		   $('#firstName').html(data['firstName']);
-		   $('#lastName').html(data['lastName']);
-		   $('.email').html(data['email']);
-		   $('.roles').html(data['roles']);		  
-	   });
-	   
-	   //Code for opening the Modal
-	   $('#user-modal').openModal();
-	   
-   });
-   
+$('.card-container').on('click', function(event) {
+    event.preventDefault();
+    var id = $(this).find('.cardid').html();
+
+    // alert(id);
+
+    //Send ajax request
+    $.ajax({
+        method: 'GET',
+        url: '/secure/card/ajax/show',
+        data: { 'id': id }
+        //Result of ajax call
+    }).done(function(data) {
+
+        $('#cardno').html(data['cardno']);
+        $('#phone').html(data['phone']);
+        $('#bank').html(data['bank']);
+        $('#user').html(data['userName']);
+        $('#email').html(data['userEmail']);
+        $('#cvv').html(data['cvv']);
+        $('#card-edit').attr("href", "/secure/card/edit/" + data['id']);
+        $('#card-delete').attr("href", "/secure/card/delete/" + data['id']);
 
 
-   $('.card-container').on('click', function (event) {
-	   event.preventDefault();
-	   var id = $(this).find('.cardid').html();
+    });
+    //Code for opening the Modal
+    $('#card-info-modal').openModal();
 
-	   // alert(id);
-	   
-	   //Send ajax request
-	   $.ajax({
-		   method :'GET',
-		   url    : '/secure/card/ajax/show',
-		   data   : {'id': id}
-		  //Result of ajax call
-	   }).done(function(data) {
+});
 
-		   $('#cardno').html(data['cardno']);
-		   $('#phone').html(data['phone']);	  
-		   $('#bank').html(data['bank']);
-		   $('#user').html(data['userName']);
-		   $('#email').html(data['userEmail']);	  
-		   $('#cvv').html(data['cvv']);
-		   $('#card-edit').attr("href", "/secure/card/edit/"+ data['id']);
-		   $('#card-delete').attr("href", "/secure/card/delete/"+ data['id']);
-
-	  
-	   });
-	   //Code for opening the Modal
-	   $('#card-info-modal').openModal();
-	   
-   });
-   
 
 // var iframe_url = "http://localhost:2004/secure/card/iframepage";
 

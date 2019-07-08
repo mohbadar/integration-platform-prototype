@@ -8,13 +8,24 @@ package af.gov.nsia.datahub.connector.controller;
 import af.gov.nsia.datahub.connector.config.aspect.Loggable;
 import af.gov.nsia.datahub.connector.connection.KafkaConnectOps;
 import af.gov.nsia.datahub.connector.model.KafkaConnector;
+import af.gov.nsia.datahub.connector.service.ConnectorTemplateService;
 import af.gov.nsia.datahub.connector.service.KafkaConnectorService;
+
+import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+
+import af.gov.nsia.datahub.connector.util.Utility;
 import lombok.extern.slf4j.Slf4j;
+import org.sourcelab.kafka.connect.apiclient.request.dto.ConnectorDefinition;
+import org.sourcelab.kafka.connect.apiclient.request.dto.ConnectorStatus;
+import org.sourcelab.kafka.connect.apiclient.request.dto.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,13 +45,28 @@ public class KafkaConnectorController {
     @Autowired
     private KafkaConnectorService kafkaConnectorService;
     private final KafkaConnectOps kafkaConnectOps = new KafkaConnectOps();
+    @Autowired
+    private ConnectorTemplateService connectorTemplateService;
 
     @Loggable
     @GetMapping(value = "/connectors")
     @PreAuthorize("hasAuthority('READ_CONNECTOR')")
     public ModelAndView findAll() {
+
+        Collection<String> connectors = kafkaConnectOps.getKafkaConnectors();
         ModelAndView mv = new ModelAndView("be/content/connector/home");
-        mv.addObject("connectors", kafkaConnectorService.findAll());
+        mv.addObject("connectors", connectors);
+        return mv;
+    }
+
+    @Loggable
+    @GetMapping(value = "/connectors/{name}")
+    @PreAuthorize("hasAuthority('READ_CONNECTOR')")
+    public ModelAndView findByName(@PathVariable("name") String name) {
+
+        ConnectorDefinition connector = kafkaConnectOps.getConnector(name);
+        ModelAndView mv = new ModelAndView("be/content/connector/details");
+        mv.addObject("connector", connector);
         return mv;
     }
 
@@ -59,7 +85,7 @@ public class KafkaConnectorController {
             @RequestParam("topic_prefix") String topicPrefix,
             @RequestParam("poll_interval_ms") int pollIntervalMS
     ) {
-        ModelAndView mv = new ModelAndView("be/content/connector/home");
+        ModelAndView mv = new ModelAndView("redirect:/secure/connectors");
 
         KafkaConnector kafkaConnector = kafkaConnectorService.findById(connectorId);
         kafkaConnectOps.createAndDeployEntireDBCaptureConnector(
@@ -96,10 +122,10 @@ public class KafkaConnectorController {
             @RequestParam("poll_interval_ms") int pollIntervalMS,
             @RequestParam("tablesname") String tablesNames
     ) {
-        ModelAndView mv = new ModelAndView("be/content/connector/home");
+        ModelAndView mv = new ModelAndView("redirect:/secure/connectors");
 
         KafkaConnector kafkaConnector = kafkaConnectorService.findById(connectorId);
-        kafkaConnectOps.createAndDeployTablesCaptureConnector(
+        kafkaConnectOps.createWhiteListTablesConnector(
                 kafkaConnector,
                 name,
                 host,
@@ -134,7 +160,7 @@ public class KafkaConnectorController {
             @RequestParam("poll_interval_ms") int pollIntervalMS,
             @RequestParam("query") String query
     ) {
-        ModelAndView mv = new ModelAndView("be/content/connector/home");
+        ModelAndView mv = new ModelAndView("redirect:/secure/connectors");
 
         KafkaConnector kafkaConnector = kafkaConnectorService.findById(connectorId);
         kafkaConnectOps.createAndDeployQueryCaptureConnector(
@@ -161,7 +187,7 @@ public class KafkaConnectorController {
     @PreAuthorize("hasAuthority('CREATE_CONNECTOR')")
     public ModelAndView getGenericConnector() {
         ModelAndView mv = new ModelAndView("be/content/connector/source/generic");
-        mv.addObject("connectors", kafkaConnectorService.findAll());
+        mv.addObject("templates", connectorTemplateService.findAll());
         return mv;
     }
 
@@ -184,7 +210,7 @@ public class KafkaConnectorController {
     }
 
     @Loggable
-    @GetMapping(value = "/connector/query-source-connector")
+    @GetMapping(value = "/connector/query-sink-connector")
     @PreAuthorize("hasAuthority('CREATE_CONNECTOR')")
     public ModelAndView getQuerySourceConnector() {
         ModelAndView mv = new ModelAndView("be/content/connector/source/query-source-connector");
@@ -192,4 +218,21 @@ public class KafkaConnectorController {
         return mv;
     }
 
+    @Loggable
+    @PostMapping(value = "/connector/generic/save")
+    @PreAuthorize("hasAuthority('CREATE_CONNECTOR')")
+    public ModelAndView saveGenericConnector(
+            @RequestParam(name = "name", required = true) String name,
+            @RequestParam(name= "config", required = true) String config
+    ) throws IOException {
+
+        ModelAndView mv =new ModelAndView("redirect:/secure/connectors");
+
+        Map<String, String> configs = Utility.jsonStringToMap(config);
+
+        kafkaConnectOps.createConnector(name, configs);
+
+        mv.addObject("successfulMsg", "Connector created successfully!");
+        return mv;
+    }
 }

@@ -27,56 +27,20 @@
 			<!--breadcrumbs end-->
 
 
-			<div th:if="${allCards}">
+			<div th:if="${connectors}">
 				
 
 				<div th:each="row : ${connectors}">
-                    <a href="#card-info-modal" class="card-container col s12">
-	                    <div class="list-items" style="width:250px;margin:5px; background-image: url('be/images/card.jpg');">
-	                       
+                    <a th:href="|@{/secure/connectors/}${row}|" class="col s12">
+	                    <div class="list-items">
 	                        <div class="browse-user-info">
-	                            <p class="item-detail" th:text="${row.name}">
-	                            
+	                            <p class="item-detail" th:text="${row}">
 	                            </p>
-	                            <p class="item-detail" th:text="${row.connectionUrl}">
-	                            </p>
-	                            <span style="visibility: hidden;" class="connectorId" th:text="${row.id}"></span>
 	                        </div>
 	                    </div> 
                     </a>
                 </div>
-
-
 			</div>
-
-
-			                <!-- START EDIT  MODAL -->
-			  <div id="card-info-modal" class="modal modal-fixed-footer">
-			    <div class="modal-content">
-			      
-			          
-			        	<h5 class="center cyan-text">Card Information</h5>
-				        <p> Card: <span id="cardno"></span></p>
-			            <p>Phone: <span id="phone"></span></p>
-			        	<p>E-Mail: <span id="email"></span></p>
-			            <p>CVV: <span id="cvv"></span></p>
-			       		<p>Bank: <span id="bank"></span></p>
-			            <p>User: <span id="user"></span></p>
-
-			      
-						<a href="" id="card-edit" class="btn waves-effect waves-teal">Edit</a>
-						<a href="" id="card-delete" class="btn red">Delete</a>
-
-			    </div>
-			    <div class="modal-footer" id="footer-modal">
-			      <a href="#" class=" modal-action modal-close waves-effect waves-teal btn-flat">Close</a>
-			    </div>
-			
-			  </div>
-              <!-- END EDIT MODAL -->
-
-	
-		
 		</div>
 
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{be/layouts/layout}">
+
+<head>
+	<title>CONNECTOR MANAGEMENT</title>
+</head>
+
+        <div layout:fragment="content">
+
+
+
+				<!--breadcrumbs start-->
+			<div id="breadcrumbs-wrapper" style="width:100%;" class="" >
+			  <div class="container">
+			    <div class="row">
+			      <div class="col s12 m12 l12">
+			        <h5 class="breadcrumbs-title">CONNECTOR MANAGEMENT </h5>
+			        <ol class="breadcrumb">
+			          <li><a th:href="@{/}">HOME</a></li>
+			          <li class="active"> Templates</li>
+			        </ol>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+            <a th:href="@{/secure/template/register}" class=" waves-effect waves-teal btn right orange">New Template</a>
+			<div class="separator" style="margin-bottom: 50px"></div>
+			<!--breadcrumbs end-->
+
+
+     <div th:if="${isDetails}">
+		<div class="create-form">
+             
+			<a href="" class=" waves-effect waves-teal btn right">Edit</a>
+			<a href="" class=" waves-effect waves-teal btn right red">Remove</a>
+				<p th:text="${template.name}"></p>		                  
+                <p th:text="${template.config}"></p>          
+           </div>
+	</div>
+
+
+	<div th:unless="${isDetails}">
+
+			   <div th:each="row : ${templates}">
+                    <a th:href="|@{/secure/template/details/}${row.id}|">
+	                    <div class="list-items" 
+                        style="width:180px;margin-top:5px;">
+	                       
+	                        <div class="browse-user-info">
+	                            <p class="item-detail" th:text="${row.name}">
+	                            
+	                            </p>
+
+	                        </div>
+	                    </div> 
+                    </a>
+                </div>
+
+
+
+
+        </div>
+
+
+		</div>
+
+</html>

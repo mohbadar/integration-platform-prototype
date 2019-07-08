@@ -1,6 +1,9 @@
 package af.gov.nsia.datahub.connector;
 
 import af.gov.nsia.datahub.connector.connection.KafkaConnectOps;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.util.Map;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,6 +46,8 @@ public class Bootstrap {
 //                "jdbc:mysql://mysql:3306/console?user=root&password=",
 //                "mysql_capture_"
 //        );
+
+
         con.printKafkaConnectors();
     }
 
@@ -50,8 +55,7 @@ public class Bootstrap {
     public KafkaProperties kafkaProperties() {
         return new KafkaProperties();
     }
-    
-    
+
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();

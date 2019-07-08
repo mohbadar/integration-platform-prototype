@@ -11,8 +11,6 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 import java.util.Collection;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Slf4j
 public class Utility {
